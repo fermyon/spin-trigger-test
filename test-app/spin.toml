@@ -1,0 +1,15 @@
+spin_manifest_version = 2
+
+[application]
+name = "test-sample"
+authors = ["karthik2804 <karthik.ganeshram@fermyon.com>"]
+description = ""
+version = "0.1.0"
+
+[[trigger.test]]
+component = "basic-test"
+
+[component.basic-test]
+source = "test.wasm"
+[component.basic-test.build]
+command = "componentize-py -d ../spin-test.wit -w spin-test componentize test -o test.wasm "

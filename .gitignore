@@ -1,0 +1,5 @@
+/target
+trigger-test*
+__pycache__
+.spin
+*.wasm

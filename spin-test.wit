@@ -1,0 +1,13 @@
+package fermyon:spin-test@2.0.0;
+
+interface test-types {
+    variant error {
+        other(string),
+    }
+}
+
+world spin-test {
+    use test-types.{error};
+    export get-test-list: func() -> result<list<string>, error>;
+    export execute-test: func(name: string) -> result<_, error>;
+}
