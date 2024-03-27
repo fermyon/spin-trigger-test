@@ -1,5 +1,5 @@
 from typing import List
-import spin_test
+import spin_test.exports
 from spin_test.imports.test_types import Err, ErrorOther
 import add_test
 import basic_test
@@ -7,7 +7,7 @@ import inspect
 
 separator = "/"
 
-class SpinTest(spin_test.SpinTest):
+class SpinTestHandler(spin_test.exports.SpinTestHandler):
     def get_test_list(self) -> List[str]:
         # Get all modules in the current global scope
         modules = [obj for name, obj in globals().items() if inspect.ismodule(obj)]

@@ -67,7 +67,10 @@ impl TriggerExecutor for TestTrigger {
             };
             let instance = SpinTest::new(&mut store, &instance)?;
 
-            let res = instance.call_get_test_list(store).await?;
+            let res = instance
+                .fermyon_spin_test_spin_test_handler()
+                .call_get_test_list(store)
+                .await?;
             match res {
                 Ok(tests) => {
                     for test in tests {
@@ -77,7 +80,10 @@ impl TriggerExecutor for TestTrigger {
                             unreachable!()
                         };
                         let instance = SpinTest::new(&mut store, &instance)?;
-                        let res = instance.call_execute_test(store, &test).await;
+                        let res = instance
+                            .fermyon_spin_test_spin_test_handler()
+                            .call_execute_test(store, &test)
+                            .await;
                         match res {
                             Ok(val) => match val {
                                 Ok(_) => println!("\"{test}\".... ok"),
