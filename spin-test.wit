@@ -6,8 +6,12 @@ interface test-types {
     }
 }
 
-world spin-test {
+interface spin-test-handler {
     use test-types.{error};
-    export get-test-list: func() -> result<list<string>, error>;
-    export execute-test: func(name: string) -> result<_, error>;
+    get-test-list: func() -> result<list<string>, error>;
+    execute-test: func(name: string) -> result<_, error>;
+}
+
+world spin-test {
+    export spin-test-handler;
 }

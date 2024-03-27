@@ -7,13 +7,3 @@ import weakref
 from ..types import Result, Ok, Err, Some
 
 
-
-@dataclass
-class ErrorOther:
-    value: str
-
-
-Error = Union[ErrorOther]
-
-
-
